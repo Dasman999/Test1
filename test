@@ -1,0 +1,59 @@
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+public class Main {
+    public static void main(String[] args) {
+        String url = "https://uacs.edu.mk/home/";
+        String url = "https://google.com";
+        String url = "https://time.mk";
+        String destination = "download.html";
+        try {
+            URL website = new URL(url);
+            URLConnection connection = website.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+            FileWriter writer = new FileWriter(destination);
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                writer.write(inputLine);
+            }
+            in.close();
+            writer.close();
+
+            System.out.println("Content downloaded and saved to " + destination);
+            System.out.println("Error downloading content: " + e.getMessage());
+        }
+        Path filePath = Paths.get("Exercises1/solutions/content_uacs_mk.txt");
+
+        try {
+            Files.write(filePath, textToAppend.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            System.out.println("Successfully.");
+        } catch (IOException e) {
+            System.err.println("Failed");
+            e.printStackTrace();
+
+            Path filePath = Paths.get("Exercises1/solutions/summary_report.txt");
+
+            try {
+                Files.write(filePath, textToAppend.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                System.out.println("Successfully.");
+            } catch (IOException e) {
+                System.err.println("Failed");
+                e.printStackTrace();
+                Path filePath = Paths.get("Exercises1/solutions/content_google_com.txt");
+
+                try {
+                    Files.write(filePath, textToAppend.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                    System.out.println("Successfully.");
+                } catch (IOException e) {
+                    System.err.println("Failed");
+                    e.printStackTrace();
+
+    }
+}
